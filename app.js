@@ -5,6 +5,8 @@ var express    = require('express'),
 var methodOverride =require('method-override'),
     expressSanitizer = require('express-sanitizer')
 
+const port = process.env.port || 3000;
+
 mongoose.connect('mongodb://localhost/blogApp',{
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -110,6 +112,6 @@ app.delete("/blogs/:id",(req,res)=>{
     })
 })
 
-app.listen(8080,function(){
+app.listen(port,function(){
     console.log("server is running")
 })
